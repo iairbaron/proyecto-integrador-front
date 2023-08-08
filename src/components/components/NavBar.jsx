@@ -32,7 +32,7 @@ const NavBar = () => {
             <Link to="./">Home</Link>
             <Link to="/packages">Packages</Link>
             <Link to="/locations">Locations</Link>
-            <Link to="./">Contacts</Link>
+            <Link to="/contacts">Contacts</Link>
           </ul>
           <div className="hidden lg:grid" >
             <CustomizedInputBase width={50} />
