@@ -30,8 +30,8 @@ const NavBar = () => {
           </div>
           <ul className={`hidden  lg:flex md:gap-4   md:items-center  md:flex-row md:pb-0 pb-12  md:static md:z-auto z-30 left-0 w-full md:w-auto md:pl-0 pl-9 `}>
             <Link to="./">Home</Link>
-            <Link to="./">Pakages</Link>
-            <Link to="./">Locations</Link>
+            <Link to="/packages">Packages</Link>
+            <Link to="/locations">Locations</Link>
             <Link to="./">Contacts</Link>
           </ul>
           <div className="hidden lg:grid" >
