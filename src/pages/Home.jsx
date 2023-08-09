@@ -60,12 +60,14 @@ const Home = () => {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-4">Destinos</h1>
-   
-      <div className="flex flex-wrap gap-8">
+      <div className="p-20" >
+      <h1 className="text-2xl font-bold mb-4 ">Destinos</h1>
+  
+      <div className="flex flex-wrap gap-8 justify-between">
         {products.map(product => (
           <Card key={product.id} product={product} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2" />
         ))}
+      </div>
       </div>
     </>
   )

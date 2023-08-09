@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import NavBar from "./components/components/NavBar"
 
 import Packages from "./pages/Packages"
+import AddProduct from "./pages/AddProduct"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Route path="/packages" element={<Packages/>} />
       <Route path="/locations" element={<p>locations</p>} />
       <Route path="/contacts" element={<p>contacts</p>} />
+      <Route path="/Agregar-producto" element={<AddProduct/>} />
 
     </Routes>
     </BrowserRouter>
