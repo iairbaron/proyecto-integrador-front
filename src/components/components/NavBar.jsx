@@ -3,8 +3,6 @@ import logo from "../../assets/logo1.ico";
 import CustomizedInputBase from "../commmons/TextField";
 import {  ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { XMarkIcon, Bars3BottomRightIcon, MoonIcon, SunIcon } from '@heroicons/react/24/solid'
-import { useState } from "react";
 import Buttons from "../commmons/Buttons";
 import SideBar from "../commmons/SideBar";
 
@@ -18,8 +16,6 @@ const theme = createTheme({
 });
 
 const NavBar = () => {
-  const [isOpen, SetIsOpen] = useState(false)
-
   return (
     <ThemeProvider theme={theme}>
       <div className="shadow-md w-full relative top-0 left-0">
