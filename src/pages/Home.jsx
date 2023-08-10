@@ -1,7 +1,7 @@
 import Card from "../components/components/Card";
 import BookingBar from "../components/commmons/BookingBar";
 import React, { useState, useEffect } from "react";
-import mediaImage from '../assets/media.png'
+import mediaImage from "../assets/media.png";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -65,16 +65,15 @@ const Home = () => {
     setProducts(exampleProducts);
   }, []);
 
- 
   return (
     <>
       <BookingBar />
-      <div className="p-20 mx-auto max-w-screen-xl">
-        <h1 className="text-2xl font-bold mb-4 ">Actividades y Excursiones</h1>
-  
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
-          {products.map(product => (
-            <div key={product.id} className="w-full p-2">
+      <div className="p-4 md:p-20 mx-auto max-w-screen-xl">
+        <h1 className="text-2xl font-bold mb-4 text-center">Actividades y Excursiones</h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {products.map((product) => (
+            <div key={product.id}>
               <Card product={product} />
             </div>
           ))}

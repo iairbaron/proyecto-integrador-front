@@ -5,6 +5,7 @@ import NavBar from "./components/components/NavBar"
 
 import Packages from "./pages/Packages"
 import AddProduct from "./pages/AddProduct"
+import ProductDetail from "./pages/ProductDetail"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Route path="/locations" element={<p>locations</p>} />
       <Route path="/contacts" element={<p>contacts</p>} />
       <Route path="/Agregar-producto" element={<AddProduct/>} />
+      <Route path="/producto/:id" element={<ProductDetail />} />
 
     </Routes>
     </BrowserRouter>
