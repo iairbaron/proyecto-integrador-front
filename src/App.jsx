@@ -5,6 +5,8 @@ import NavBar from "./components/components/NavBar"
 
 import Packages from "./pages/Packages"
 import AddProduct from "./pages/AddProduct"
+import QuiltedImageList from "./components/components/ImageList"
+import ProductDetails from "./pages/ProductDetails"
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
       <Route path="/packages" element={<Packages/>} />
       <Route path="/locations" element={<p>locations</p>} />
       <Route path="/contacts" element={<p>contacts</p>} />
+      <Route path="/Image-list" element={<ProductDetails/>} />
       <Route path="/Agregar-producto" element={<AddProduct/>} />
 
     </Routes>

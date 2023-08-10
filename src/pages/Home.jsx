@@ -71,7 +71,6 @@ const Home = () => {
       <BookingBar />
       <div className="p-20 mx-auto max-w-screen-xl">
         <h1 className="text-2xl font-bold mb-4 ">Actividades y Excursiones</h1>
-  
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
           {products.map(product => (
             <div key={product.id} className="w-full p-2">

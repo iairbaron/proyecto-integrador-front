@@ -3,7 +3,6 @@ import logo from "../../assets/logo1.ico";
 import CustomizedInputBase from "../commmons/TextField";
 import {  ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { XMarkIcon, Bars3BottomRightIcon, MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import Buttons from "../commmons/Buttons";
 import SideBar from "../commmons/SideBar";
 
@@ -29,7 +28,7 @@ const NavBar = () => {
             <Link to="./">Home</Link>
             <Link to="/packages">Packages</Link>
             <Link to="/locations">Locations</Link>
-            <Link to="/contacts">Contacts</Link>
+            <Link to="/Image-list">Probando galeria</Link>
             <Link to="./Agregar-producto">Agregar Producto</Link>
           </ul>
           <div className="hidden lg:grid" >
