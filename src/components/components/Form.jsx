@@ -27,7 +27,7 @@ const Form = () => {
         };
 
         // Realizar la solicitud POST utilizando Axios
-        axios.post('URL_DE_TU_API', producto)
+        axios.post('http://localhost:8080/productos', producto)
             .then(response => {
                 console.log('Producto enviado:', response.data);
                 // Limpiar el formulario
@@ -97,6 +97,9 @@ const Form = () => {
                         <option value={3}>3</option>
                         <option value={4}>4</option>
                         <option value={5}>5</option>
+                        <option value={5}>5</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
                     </select>
 
                     {renderUrlInputs()}

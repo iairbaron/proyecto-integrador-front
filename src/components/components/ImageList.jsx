@@ -14,8 +14,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 export default function QuiltedImageList({ itemData }) {
     return (
         <>
-            <div className='flex flex-col items-end'>
-                <ImageList sx={{ width: 600 }} variant="quilted" cols={4} rowHeight={150} >
+            <ImageList sx={{ width: 700 }} variant="quilted" cols={4} rowHeight={200} >
                     {itemData.slice(0, 5).map((item, index) => (
                         <ImageListItem key={item.img} cols={index === 0 ? 2 : 1} rows={index === 0 ? 2 : 1} >
                             <img
@@ -27,14 +26,7 @@ export default function QuiltedImageList({ itemData }) {
                     ))}
                 </ImageList>
 
-                <BasicModal>
-                <SlideImage itemData={itemData} /> 
-                </BasicModal>
-            </div>
-             
-            
+              
         </>
-
     );
 }
-

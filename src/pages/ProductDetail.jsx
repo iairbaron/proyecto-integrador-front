@@ -47,25 +47,26 @@ const ProductDetail = () => {
   }
 
   return (
-    <>
-        <div className="flex justify-center items-center p-10"> 
+    <>   
+      <h2 className="product-name flex w-700 justify-center items-center pb-5 pt-10">{product.name}</h2>
+        <div className="flex w-full justify-center items-center pb-5 pt-10"> 
           <QuiltedImageList itemData={itemData} />
       </div>
-      <div className='flex justify-center items-center lg:pl-40 lg:ml-80 '>
-      <BasicModal>
+      <div style={{ display: "flex",   justifyContent:"center"}}> 
+        <div style={{width:700, display:"flex", justifyContent:"space-between"}}>
+          <div className='flex-col w-3/4'>
+            <h1 className="text-2xl font-bold">{product.name} </h1>
+            <p className="product-price  mb-3 ">${product.price}</p>
+            <h1 className="text-2x1 font-bold mb-1">Descripcion:</h1>
+            <p className="product-description "> {product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dolorem suscipit rem voluptatibus ducimus nostrum alias repudiandae. Consectetur asperiores doloremque eum amet provident, dicta nobis deserunt, voluptatum officiis nisi omnis.lorem</p> 
+      </div>
+      <BasicModal >
           <SlideImage itemData={itemData} />
       </BasicModal>
       </div>
-    
-    <div className="product-detail">
-      
-      <div className="product-info">
-        <h2 className="product-name">{product.name}</h2>
-        <p className="product-description">{product.description}</p>
-        <p className="product-price">${product.price}</p>
+      </div>      
+      <div className="product-info flex flex-col ">
       </div>
-    </div>
-
     </>
   );
 };

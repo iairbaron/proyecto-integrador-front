@@ -28,8 +28,7 @@ const NavBar = () => {
             <Link to="./">Home</Link>
             <Link to="/packages">Packages</Link>
             <Link to="/locations">Locations</Link>
-            <Link to="/Image-list">Probando galeria</Link>
-            <Link to="./Agregar-producto">Agregar Producto</Link>
+            <Link to="./Agregar-producto">Panel Administracion</Link>
           </ul>
           <div className="hidden lg:grid" >
             <CustomizedInputBase width={50} />
