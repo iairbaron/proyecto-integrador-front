@@ -6,7 +6,6 @@ import mediaImage from "../assets/media.png";
 const Home = () => {
   const [products, setProducts] = useState([]);
 
-  //ESTA COMENTADO PORQUE AUN NO ESTA LISTA LA API QUE DEVUELVA PRODUCTOS ALEATORIOS
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
@@ -18,9 +17,16 @@ const Home = () => {
   //       console.error('Error fetching products:', error);
   //     }
   //   };
-
+  // Generar una lista de índices aleatorios
+  // const randomIndexes = [...Array(exampleProducts.length)].map((_, index) => index);
+  // randomIndexes.sort(() => Math.random() - 0.5);
+  // // Ordenar los productos según los índices aleatorios
+  // const randomProducts = randomIndexes.map(index => exampleProducts[index]);
+  // setProducts(randomProducts);
   //   fetchProducts();
   // }, []);
+
+
 
   useEffect(() => {
     // Array de ejemplo con datos de productos
@@ -62,7 +68,12 @@ const Home = () => {
       },
     ];
 
-    setProducts(exampleProducts);
+    // Generar una lista de índices aleatorios
+    const randomIndexes = [...Array(exampleProducts.length)].map((_, index) => index);
+    randomIndexes.sort(() => Math.random() - 0.5);
+    // Ordenar los productos según los índices aleatorios
+    const randomProducts = randomIndexes.map(index => exampleProducts[index]);
+    setProducts(randomProducts);
   }, []);
 
   return (
@@ -70,7 +81,8 @@ const Home = () => {
       <BookingBar />
       <div className="p-4 md:p-20 mx-auto max-w-screen-xl">
         <h1 className="text-2xl font-bold mb-4 text-center">Actividades y Excursiones</h1>
-        <div className="grid grid-cols-1 grid-cols-2 gap-8">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {products.map((product) => (
             <div key={product.id}>
               <Card product={product} />
