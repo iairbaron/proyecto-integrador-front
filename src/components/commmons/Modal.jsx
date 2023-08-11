@@ -7,7 +7,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 350,
+    width: 500,
     bgcolor: 'background.paper',
     border: '10px solid #9EDE82',
     borderRadius: 5,
@@ -15,7 +15,7 @@ const style = {
     p: 4,
 };
 
-export default function BasicModal({ children }) {
+export default function BasicModal({ children, textButton }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -23,7 +23,7 @@ export default function BasicModal({ children }) {
     return (
         <div>
             <button onClick={handleOpen} className="mt-1 bg-[#9EDE82] text-white py-2 px-4 rounded-md hover:bg-[#9EAA] hover:text-[#9EDE82]  focus:outline-none">
-                VER MÁS
+                {textButton}
             </button>
             <Modal
                 open={open}

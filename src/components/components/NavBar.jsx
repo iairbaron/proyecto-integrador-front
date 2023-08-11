@@ -20,7 +20,9 @@ const NavBar = () => {
     <ThemeProvider theme={theme}>
       <div className="shadow-md w-full relative top-0 left-0">
         <div className="flex  md:flex items-center justify-around lg:justify-evenly">
+          <Link to="./">
           <img src={logo} className="w-32 md:w-40 h-28 md:h-40" alt="Logo" />
+          </Link>
           <div className=" lg:hidden" >
           <SideBar />
           </div>
@@ -28,7 +30,7 @@ const NavBar = () => {
             <Link to="./">Home</Link>
             <Link to="/packages">Packages</Link>
             <Link to="/locations">Locations</Link>
-            <Link to="./Agregar-producto">Panel Administracion</Link>
+            <Link to="./dashboard">Panel Administracion</Link>
           </ul>
           <div className="hidden lg:grid" >
             <CustomizedInputBase width={50} />
