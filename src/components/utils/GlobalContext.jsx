@@ -9,26 +9,42 @@ export const ContextProvider = ({ children }) => {
     const mezclarOrdenProducts = (array) => {
         const randomIndexes = [...Array(array.length)].map((_, index) => index);
         randomIndexes.sort(() => Math.random() - 0.5);
-        let randomProducts = randomIndexes.map((index) => array[index])
-        return randomProducts
+        let randomProducts = randomIndexes.map((index) => array[index]);
+        return randomProducts;
+    };
+
+    const submitProduct = async (url,product) => {
+        try {
+            const response = await axios.post(url, product);
+            console.log("Producto enviado:", response.data);
+            setProducts([...products, response.data]); // Suponiendo que la respuesta es el producto creado
+            return true;
+        } catch (error) {
+            console.error("Error al enviar el producto:", error);
+            return false;
+        }
+    };
+
+    const fetchProducts = async () => {
+        try {
+            const response = await fetch(
+                "https://jsonplaceholder.typicode.com/users"
+            );
+            const data = await response.json();
+            setProducts(data);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
     };
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch("URL DE LA API");
-                const data = await response.json();
-                setProducts(data);
-            } catch (error) {
-                console.error("Error fetching products:", error);
-            }
-        };
-    
         fetchProducts();
     }, []);
 
     return (
-        <ContextGlobal.Provider value={{ products, mezclarOrdenProducts }}>
+        <ContextGlobal.Provider
+            value={{ products, mezclarOrdenProducts, submitProduct }}
+        >
             {children}
         </ContextGlobal.Provider>
     );

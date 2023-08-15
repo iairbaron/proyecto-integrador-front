@@ -2,6 +2,10 @@ import  { useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
+import { useContext } from "react";
+import { ContextGlobal } from '../utils/GlobalContext';
+
+
 
 const theme = createTheme({
     palette: {
@@ -11,59 +15,49 @@ const theme = createTheme({
     },
 });
 
+
+
+
+
 const Form = () => {
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [urls, setUrls] = useState([]);
+    const [urls, setUrls] = useState("");
     const [msj, setMsj] = useState('');
-    const [cantUrl, setCantUrl] = useState('');
 
-    function handleSubmit(e) {
+
+
+    const { submitProduct } = useContext(ContextGlobal);
+    
+    async function handleSubmit(e) {
         e.preventDefault();
         const producto = {
-            Pnombre: nombre.trim(),
-            Pdescripcion: descripcion,
-            Purls: urls
+            nombre: nombre.trim(),
+            descripcion: descripcion,
+            urls: urls
         };
 
-        // Realizar la solicitud POST utilizando Axios
-        axios.post('http://localhost:8080/productos', producto)
-            .then(response => {
-                console.log('Producto enviado:', response.data);
-                // Limpiar el formulario
+        // Usa la función submitProduct del contexto global
+        const url = 'URL DE LA API'; // Define la URL aquí
+
+        try {
+            const success = await submitProduct(url, producto);
+            if (success) {
                 setNombre('');
                 setDescripcion('');
                 setUrls([]);
-                setCantUrl('');
                 setMsj('Producto enviado exitosamente');
-            })
-            .catch(error => {
-                console.error('Error al enviar el producto:', error);
+            } else {
                 setMsj('Hubo un error al enviar el producto.');
-            });
+            }
+        } catch (error) {
+            console.error('Error al enviar el producto:', error);
+            setMsj('Hubo un error al enviar el producto.');
+        }
     }
 
-    function handleUrlChange(index, value) {
-        const newUrls = [...urls];
-        newUrls[index] = value;
-        setUrls(newUrls);
-    }
 
-    function renderUrlInputs() {
-        return Array.from({ length: Number(cantUrl) }, (_, index) => (
-            <TextField
-                key={index}
-                label={`URL ${index + 1}`}
-                variant="outlined"
-                fullWidth
-                size="small"
-                value={urls[index] || ''}
-                onChange={(e) => handleUrlChange(index, e.target.value)}
-                style={{ marginBottom: '2px' }} // Agrega un estilo para reducir la altura
 
-            />
-        ));
-    }
     return (
         <ThemeProvider theme={theme}>
             <div>
@@ -86,23 +80,14 @@ const Form = () => {
                         onChange={(e) => setDescripcion(e.target.value)}
                     />
 
-                    <select
-                        className='border rounded px-2 py-1'
-                        value={cantUrl}
-                        onChange={(e) => setCantUrl(e.target.value)}
-                    >
-                        <option value=''>Selecciona cantidad de urls</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={5}>5</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                    </select>
-
-                    {renderUrlInputs()}
+                    <TextField
+                        label="URL"
+                        variant="outlined"
+                        multiline
+                        fullWidth
+                        value={urls}
+                        onChange={(e) => setUrls(e.target.value)}
+                    />
 
                     <p className='text-[red]'>{msj}</p>
 

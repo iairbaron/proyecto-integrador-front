@@ -7,6 +7,7 @@ import AddProduct from "./pages/AddProduct"
 import ProductDetail from "./pages/ProductDetail"
 import Dashboard from "./pages/Dashboard"
 import { ContextProvider } from "./components/utils/GlobalContext"
+import Footer from "./components/components/Footer"
 
 function App() {
 
@@ -22,9 +23,9 @@ function App() {
       <Route path="/contacts" element={<p>contacts</p>} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/Agregar-producto" element={<AddProduct/>} />
-      <Route path="/producto/:id" element={<ProductDetail />} />
-  
+      <Route path="/producto/:id" element={<ProductDetail />} />  
     </Routes>
+    <Footer/>
     </ContextProvider>
     </BrowserRouter>
     
