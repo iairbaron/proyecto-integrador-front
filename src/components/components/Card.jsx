@@ -14,14 +14,14 @@ const Card = ({ product }) => {
         <h2 className="text-lg font-semibold mb-2">{product.name}</h2>
         <p className="text-gray-600 mb-2">{product.description}</p>
         <p>${product.price}</p>
-        <div className='g-5'>
+        <div S>
           <Link to={`/producto/${product.id}`} state={{ product }} className="link">
             <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none">
               VER MÁS
             </button>
           </Link>
           <button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none">
-            COMPRAR
+            Rese
           </button>
         </div>
       </div>

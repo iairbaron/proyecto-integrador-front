@@ -6,11 +6,13 @@ import Packages from "./pages/Packages"
 import AddProduct from "./pages/AddProduct"
 import ProductDetail from "./pages/ProductDetail"
 import Dashboard from "./pages/Dashboard"
+import { ContextProvider } from "./components/utils/GlobalContext"
 
 function App() {
 
   return (
     <BrowserRouter>
+    <ContextProvider>
     <NavBar/>
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
@@ -21,8 +23,9 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/Agregar-producto" element={<AddProduct/>} />
       <Route path="/producto/:id" element={<ProductDetail />} />
-
+  
     </Routes>
+    </ContextProvider>
     </BrowserRouter>
     
   )
