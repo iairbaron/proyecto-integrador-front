@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Button } from '@mui/material';
 import QuiltedImageList from '../components/components/ImageList'
 import BasicModal from '../components/commmons/Modal';
 import SlideImage from '../components/commmons/sildeImage';
+import CaracteristicasProducto from '../components/components/CaracteristicasProducto';
 
 const itemData = [
   {
@@ -65,6 +65,8 @@ const ProductDetail = () => {
       </div>
       <div className="product-info flex flex-col ">
       </div>
+      <CaracteristicasProducto />
+      
     </>
   );
 };

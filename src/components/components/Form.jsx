@@ -1,11 +1,9 @@
-import  { useState } from 'react'
+import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import axios from 'axios';
-import { useContext } from "react";
+import { useContext } from 'react';
 import { ContextGlobal } from '../utils/GlobalContext';
-
-
+import { InputLabel, MenuItem, OutlinedInput, Select, FormControl } from '@mui/material';
 
 const theme = createTheme({
     palette: {
@@ -15,26 +13,21 @@ const theme = createTheme({
     },
 });
 
-
-
-
-
 const Form = () => {
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [urls, setUrls] = useState("");
+    const [urls, setUrls] = useState('');
+    const [categoria, setCategoria] = useState('');
     const [msj, setMsj] = useState('');
 
-
-
     const { submitProduct } = useContext(ContextGlobal);
-    
+
     async function handleSubmit(e) {
         e.preventDefault();
         const producto = {
             nombre: nombre.trim(),
             descripcion: descripcion,
-            urls: urls
+            urls: urls,
         };
 
         // Usa la función submitProduct del contexto global
@@ -56,23 +49,21 @@ const Form = () => {
         }
     }
 
-
-
     return (
         <ThemeProvider theme={theme}>
-            <div>
+            <div className='mb-10'>
                 <form onSubmit={handleSubmit} className='flex flex-col gap-6 w-80'>
                     <TextField
-                        label="Nombre"
-                        variant="outlined"
+                        label='Nombre'
+                        variant='outlined'
                         fullWidth
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}
                     />
 
                     <TextField
-                        label="Descripcion"
-                        variant="outlined"
+                        label='Descripcion'
+                        variant='outlined'
                         multiline
                         rows={4}
                         fullWidth
@@ -80,23 +71,36 @@ const Form = () => {
                         onChange={(e) => setDescripcion(e.target.value)}
                     />
 
+                    <FormControl variant='outlined' fullWidth>
+                        <InputLabel>Seleccione una categoria</InputLabel>
+                        <Select
+                            value={categoria}
+                            onChange={(e) => setCategoria(e.target.value)}
+                            label='Seleccione una opción'
+                        >
+                            <MenuItem value='opcion1'>Opción 1</MenuItem>
+                            <MenuItem value='opcion2'>Opción 2</MenuItem>
+                            <MenuItem value='opcion3'>Opción 3</MenuItem>
+                        </Select>
+                    </FormControl>
+
                     <TextField
-                        label="URL"
-                        variant="outlined"
+                        label='URL'
+                        variant='outlined'
                         multiline
                         fullWidth
                         value={urls}
                         onChange={(e) => setUrls(e.target.value)}
                     />
-
                     <p className='text-[red]'>{msj}</p>
 
-                    <button className='btn h-10 bg-gradient-to-r from-[#9EDE82] to-[#9EDE80] text-white font-semibold px-3 py-1 rounded duration-500 md:static' type='submit'>Enviar</button>
-
+                    <button className='btn h-10 bg-gradient-to-r from-[#9EDE82] to-[#9EDE80] text-white font-semibold px-3 py-1 rounded duration-500 md:static' type='submit'>
+                        Enviar
+                    </button>
                 </form>
             </div>
         </ThemeProvider>
     );
-}
+};
 
 export default Form;

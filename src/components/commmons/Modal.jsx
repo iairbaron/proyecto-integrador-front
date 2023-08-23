@@ -22,7 +22,7 @@ export default function BasicModal({ children, textButton }) {
 
     return (
         <div>
-            <button onClick={handleOpen} className="mt-1 bg-[#9EDE82] text-white py-2 px-4 rounded-md hover:bg-[#9EAA] hover:text-[#9EDE82]  focus:outline-none">
+            <button onClick={handleOpen} className="w-full mt-1 bg-[#9EDE82] text-white py-2 px-4 rounded-md hover:bg-[#9EAA] hover:text-[#9EDE82]  focus:outline-none">
                 {textButton}
             </button>
             <Modal

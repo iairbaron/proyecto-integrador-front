@@ -8,6 +8,9 @@ import ProductDetail from "./pages/ProductDetail"
 import Dashboard from "./pages/Dashboard"
 import { ContextProvider } from "./components/utils/GlobalContext"
 import Footer from "./components/components/Footer"
+import LogIn from "./pages/LogIn"
+import Banner from "./components/components/Banner"
+import RegistrationForm from "./pages/RegistrationForm"
 
 function App() {
 
@@ -15,6 +18,7 @@ function App() {
     <BrowserRouter>
     <ContextProvider>
     <NavBar/>
+    <Banner/>
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home/>}/>
@@ -24,6 +28,8 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/Agregar-producto" element={<AddProduct/>} />
       <Route path="/producto/:id" element={<ProductDetail />} />  
+      <Route path="/LogIn" element={<LogIn />} />
+      <Route path="/Register" element={<RegistrationForm />} />
     </Routes>
     <Footer/>
     </ContextProvider>

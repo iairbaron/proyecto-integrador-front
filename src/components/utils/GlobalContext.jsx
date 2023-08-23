@@ -5,6 +5,7 @@ export const ContextGlobal = createContext({});
 
 export const ContextProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
+    const [userEmail, setUserEmail] = useState("");
 
     const mezclarOrdenProducts = (array) => {
         const randomIndexes = [...Array(array.length)].map((_, index) => index);
@@ -12,6 +13,7 @@ export const ContextProvider = ({ children }) => {
         let randomProducts = randomIndexes.map((index) => array[index]);
         return randomProducts;
     };
+
 
     const submitProduct = async (url,product) => {
         try {
@@ -39,12 +41,16 @@ export const ContextProvider = ({ children }) => {
 
     useEffect(() => {
         fetchProducts();
+
+        const emailFromStorage = sessionStorage.getItem("email");
+        if (emailFromStorage) {
+            setUserEmail(emailFromStorage)
+            console.log("aaaa "+ userEmail);
+        }
     }, []);
 
     return (
-        <ContextGlobal.Provider
-            value={{ products, mezclarOrdenProducts, submitProduct }}
-        >
+        <ContextGlobal.Provider value={{ products, mezclarOrdenProducts, submitProduct, userEmail  }}>
             {children}
         </ContextGlobal.Provider>
     );

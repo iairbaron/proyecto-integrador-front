@@ -1,10 +1,7 @@
 import bannerImg from "../../assets/banner.png"
+import BookingBar from "../commmons/BookingBar"
 
 const Banner = () => {
-
-
-
-  
   return (
       <div className=" w-full   flex justify-center  items-center" style={{ height:"60vh", backgroundImage: `url(${bannerImg})`, backgroundSize: "100% 100%",backgroundRepeat: "no-repeat", backgroundPosition: "center",  }}>
         <div className="w-3/4 flex justify-center ">
@@ -13,6 +10,7 @@ const Banner = () => {
         </h1>
         </div>
         </div>
+      
     </div>
   )
 }

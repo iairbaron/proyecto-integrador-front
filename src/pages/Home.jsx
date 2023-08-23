@@ -1,4 +1,4 @@
-import Card from "../components/components/Card";
+import Card from "../components/commmons/Card";
 import BookingBar from "../components/commmons/BookingBar";
 import React, { useState, useEffect } from "react";
 import mediaImage from "../assets/media.png";
@@ -79,11 +79,9 @@ const Home = () => {
 
   return (
     <>
-    <Banner/>
-      {/* <BookingBar /> */}
       <div className="p-4 md:p-20 mx-auto max-w-screen-xl">
-        <h1 className="text-2xl font-bold mb-4 text-center">Actividades y Excursiones</h1>
-
+        <BookingBar />
+        <h1 className="text-2xl font-bold mb-4 text-center mt-10">Actividades y Excursiones</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {products.map((product) => (
             <div key={product.id}>
